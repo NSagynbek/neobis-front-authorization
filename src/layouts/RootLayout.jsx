@@ -1,9 +1,9 @@
 import {NavLink, Outlet} from "react-router-dom"
-import Login from "../components/Login"
+
 
 export default function RootLayout (){
     return(
-        <div>
+        <div className="root-layout-container">
               <header>
                 <nav>
                     {/* <NavLink to="/">The Meal</NavLink> */}

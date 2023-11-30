@@ -1,4 +1,8 @@
 import illustration from '../assets/images/illustration.png';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import { IconButton, InputAdornment } from '@mui/material';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import {Formik,Form,Field,ErrorMessage} from "formik"
 import * as Yup from "yup"
@@ -17,6 +21,12 @@ const validationSchema = Yup.object({
 
 export default function Login (){
 
+    const [showPassword, setShowPassword] =useState(false);
+
+    function handlePasswordVisibility(){
+        setShowPassword(!showPassword);
+    }
+
     const onSubmit = (values) =>{
         console.log("form data", values)
     }
@@ -27,7 +37,7 @@ export default function Login (){
                 <img src={illustration} alt={illustration} className='login__container-image'  />
                 <p className='login__container-heading'>Lorby</p>
                 <p className='login__container-text'>Твой личный репетитор</p>
-            </div>
+           </div>
 
 
         <Formik
@@ -44,25 +54,35 @@ export default function Login (){
             <Field type="text" 
             id="login" 
             name="login" 
-            placeholder="login"
+            placeholder="Введи логин"
             />
 
           <ErrorMessage name="login" />
 
            
 
+         <div className='password'>
 
-            <Field type="password" 
+            <Field 
+            type={showPassword?"text":"password"} 
             id="password" 
             name="password" 
-            placeholder="password"
+            placeholder="Введи пароль"
             />
+
+            <InputAdornment position="end" className='MUicon' >
+                <IconButton onClick={handlePasswordVisibility} edge="end">
+                  <VisibilityOutlinedIcon />
+                </IconButton>
+            </InputAdornment>
+
+         </div>
 
             <ErrorMessage name="password" />
 
             <button type='submit' className='form-control__Btn'>Войти</button>
 
-            <p className='form-control__noAccount'>У меня еще нет аккаунта</p>
+            <NavLink to="/signup" className='form-control__noAccount'>У меня еще нет аккаунта</NavLink>
 
             </div>
 

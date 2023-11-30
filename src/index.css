@@ -4,11 +4,18 @@
   box-sizing: border-box;
 }
 
+.root-layout-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login{
   display: flex;
   justify-content: center;
   align-items: center;
   justify-content: space-evenly;
+  gap: 350px;
 }
 
 .login__container{
@@ -53,7 +60,7 @@
   line-height: 47.52px;
 }
 
-#login , #password{
+#login , #password, #email, #secondPpassword{
   width: 100%;
   height: 52px;
   outline: none;
@@ -62,6 +69,18 @@
   background-color: #F8F8F8;
   font-size: 16px;
   margin-bottom: 10px;
+}
+
+.password{
+  position: relative;
+  width: 100%;
+ margin-bottom: 5px;
+}
+
+.MUicon{
+  position: absolute;
+  right: 20px;
+  top: 30px;
 }
 
 .form-control__Btn{
@@ -78,6 +97,19 @@
   
 }
 
+.form-control__Btn-sign-in{
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 50px;
+  border-radius:12px;
+  padding: 13px 16px 13px 16px;
+  background: #D7D7D7;
+  color: #767676;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
 .form-control__noAccount{
   display: flex;
   justify-content: center;
@@ -91,4 +123,72 @@
   color: #292929;
   background: #F8F8F8;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.welcom-back{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 420px;
+  height: 667.26px;
+  gap: 10px ;
+}
+
+.welcom-back__heading{
+  font-size: 36px;
+  font-weight: 500px;
+  line-height: 53.46px;
+  color: #212121;
+}
+
+.welcom-back__text{
+  font-size: 20px;
+  font-weight: 400px;
+  line-height: 29.7px;
+ color: #212121;
+ margin-bottom: 10px;
+}
+
+.welcom-back__image-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 446.26px;
+  
+}
+
+.welcom-back__image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.welcom-back__exit{
+  font-weight: 500px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #292929;
+  text-decoration: none;
+}
+
+  .text-error{
+    color: red;
+  }
+  .error-field{
+    border: 1px solid red;
+    color: red;
+  }
+  .passwordRequirements li{
+    list-style: none;
+    line-height: 25px;
+  }
+
+.passwordRequirements__ul{
+  display: flex;
+  flex-direction: column;
+  width: 343px;
 }
