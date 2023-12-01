@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 import {Formik,Form,Field,ErrorMessage} from "formik"
 import * as Yup from "yup"
+import PasswordModal from './PasswordModal';
 
 
 const initialValues = {
@@ -33,6 +34,7 @@ export default function Login (){
 
     return(
         <div className="login">
+            <PasswordModal/>
             <div className='login__container'>
                 <img src={illustration} alt={illustration} className='login__container-image'  />
                 <p className='login__container-heading'>Lorby</p>

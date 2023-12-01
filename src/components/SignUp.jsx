@@ -1,12 +1,14 @@
 import illustration from '../assets/images/illustration.png';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { IconButton, InputAdornment } from '@mui/material';
-import { useState} from 'react';
 import PasswordRequirements from './PasswordRequirements';
 import TextError from './TextError';
-
+import { NavLink } from 'react-router-dom';
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import * as yup from "yup";
+
+import { useState} from 'react';
 
 const initialValues = {
     email:"",
@@ -25,14 +27,23 @@ export default function SignUp(){
     const [showSecondRepead, setSecondRepead] =useState(false);
 
     const validationSchema = yup.object({
-        email: yup.string().email("Invalid format").required("Required"),
-        username: yup.string().required("Required"),
-        password: yup.string().required("Required"),
-        secondPassword: yup
-          .string()
-          .required("Required")
-          .oneOf([yup.ref('password'), null], 'Passwords must match'), // Validation for matching passwords
-      });
+      email: yup.string().email('Invalid format').required('Required'),
+      username: yup.string().required('Required'),
+      password: yup
+        .string()
+        .required('Required')
+        .min(8, '') 
+        .matches(/[a-z]/, '') 
+        .matches(/[A-Z]/, '') 
+        .matches(/[0-9]/, '') 
+        .matches(/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/, ''),
+      secondPassword: yup
+        .string()
+        .required('Required')
+        .oneOf([yup.ref('password'), null], 'Passwords must match'),
+    });
+    
+    
 
     function handlePasswordVisibility(){
         setSecond(!showSecond);
@@ -50,6 +61,20 @@ export default function SignUp(){
 
   
     return(
+      <div className='signUp-container'>
+
+        <label htmlFor="backBtn" className='backBtn-label'>
+              <NavLink id='backBtn-label__link' to="/">
+              Назад
+              </NavLink>
+
+            <NavLink to="/" className='backIcon' id="backBtn">
+                 <IconButton edge="start">
+                   <ChevronLeftOutlinedIcon />
+               </IconButton>
+            </NavLink>
+        </label> 
+
         <div className="login">
 
             <div className='login__container'>
@@ -114,6 +139,7 @@ export default function SignUp(){
             </InputAdornment>
 
          </div>
+        
          <PasswordRequirements password={formikProps.values.password || ""}/>
 
 
@@ -138,7 +164,7 @@ export default function SignUp(){
             </InputAdornment>
 
          </div>
-
+        
             <ErrorMessage name="secondPassword" component={TextError} />
 
             <button type='submit' className='form-control__Btn-sign-in'>Далее</button>
@@ -157,5 +183,7 @@ export default function SignUp(){
 
 
         </div>
+
+      </div>
     )
 }

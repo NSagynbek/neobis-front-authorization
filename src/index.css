@@ -4,10 +4,19 @@
   box-sizing: border-box;
 }
 
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .root-layout-container{
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+ 
 }
 
 .login{
@@ -15,7 +24,9 @@
   justify-content: center;
   align-items: center;
   justify-content: space-evenly;
-  gap: 350px;
+  position: relative;
+  width: 100%;
+  min-height: 850px;
 }
 
 .login__container{
@@ -97,6 +108,7 @@
   
 }
 
+
 .form-control__Btn-sign-in{
   border: none;
   outline: none;
@@ -177,6 +189,8 @@
 
   .text-error{
     color: red;
+    align-self: flex-start;
+    margin: 5px 0 5px;
   }
   .error-field{
     border: 1px solid red;
@@ -192,3 +206,165 @@
   flex-direction: column;
   width: 343px;
 }
+
+.signUp-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 850px;
+}
+
+#backBtn-label__link{
+  text-decoration: none;
+  padding: 4px;
+  font-size: 16px;
+  font-weight: 400px;
+  line-height: 23.76px;
+  color:#000000;  
+}
+
+.backBtn-label{
+margin: 30px auto;
+width: 150px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+}
+
+.backIcon{
+  position: absolute;
+  left: 0;
+}
+
+.email-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 350px  ;
+}
+
+.email{
+  justify-content: center;
+  align-items: center;
+  width: 421px;
+  height: 404px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.email__Heading{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500px;
+  font-size: 24px;
+  line-height: 35.64px;
+  color:#212121;
+  
+}
+.email__Text{
+ text-align: center;
+ width: 80%;
+ font-weight: 500px;
+  font-size: 20px;
+  line-height: 29.7px;
+  color: #767676;
+
+}
+
+.email__Btn{
+  width: 343px;
+  height: 50px;
+  border-radius: 12px;
+  padding: 13px 16px 13px 16px;
+  background:#FFFFFF ;
+  color: #292929;
+  font-weight: 500px;
+  font-size: 16px;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.emailSent{
+  position: relative;  
+  width: 100%;
+  min-height: 850px;
+}
+
+.modal-window{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 375px;
+  height: 300px;
+  border-radius: 32px;
+  gap: 24px;
+  background: #FFFFFF;
+  left: 40%;
+  top: 260px;
+  position: absolute;
+
+}
+
+.modal-window__Heading{
+  font-weight: 500px;
+  font-size: 20px;
+  line-height: 29.7px;
+  text-align: center;
+  color:#212121 ;
+}
+.modal-window__Text{
+  font-weight: 500px;
+  font-size: 16px;
+  line-height: 23.76px;
+  text-align: center;
+  color: #767676;
+}
+
+.modal-window__Btn{
+  width: 311px;
+  height: 50px;
+  border-radius: 12px;
+  padding: 13px 16px 13px 16px;
+  background:#292929;
+  color: #F8F8F8;
+  cursor: pointer;
+}
+
+.modal-window-container{
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background:#00000080 ;
+}
+
+.password-modal{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 344px;
+  height: 54px;
+  padding:  16px 15px 16px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #EC0000 ;
+  right: 300px;
+  top: 50px;
+}
+
+.password-modal__text{
+  font-weight: 500px;
+  font-size: 16px;
+  line-height: 24px;
+  color:#EC0000;
+}
+
