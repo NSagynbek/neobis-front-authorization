@@ -8,7 +8,10 @@ import { NavLink } from 'react-router-dom';
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import * as yup from "yup";
 
+
 import { useState} from 'react';
+
+import { signup } from '../Api';
 
 const initialValues = {
     email:"",
@@ -53,8 +56,10 @@ export default function SignUp(){
         setSecondRepead(!showSecondRepead);
     }
 
-    const onSubmit = (values,{setSubmitting}) =>{
-        console.log("form data", values)
+    const onSubmit = async (values,{setSubmitting}) =>{
+    const response = await signup(values);
+    console.log(response)
+  
         setSubmitting(false);
     }
 

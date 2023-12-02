@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 import {Formik,Form,Field,ErrorMessage} from "formik"
 import * as Yup from "yup"
-import PasswordModal from './PasswordModal';
+import PasswordModal from "../modal/PasswordModal"
 
 
 const initialValues = {
@@ -30,7 +30,7 @@ export default function Login (){
     }
 
     const onSubmit = (values) =>{
-        console.log("form data", values)
+        console.log("form data", values.password)
     }
 
     return(

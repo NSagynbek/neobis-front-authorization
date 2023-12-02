@@ -4,7 +4,9 @@ import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { NavLink } from 'react-router-dom';
 
 import { useState} from 'react';
-import EmailModal from './EmailModal';
+
+import EmailModal from "../modal/EmailModal"
+
 
 
 

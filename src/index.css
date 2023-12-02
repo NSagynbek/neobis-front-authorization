@@ -367,3 +367,14 @@ position: relative;
   color:#EC0000;
 }
 
+.modal-window__Btn-stay{
+  width: 311px;
+  height: 50px;
+  border-radius: 12px;
+  padding: 13px 16px 13px 16px;
+  background:#FFFFFF;
+  color: #292929;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}

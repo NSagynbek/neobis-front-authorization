@@ -3,11 +3,12 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 
 import Login from "./components/Login"
 import RootLayout from "./layouts/RootLayout"
-import WelcomeBack from "./components/WelcomeBack"
+import WelcomeBack from "./components/WelcomBack"
 import SignUp from "./components/SignUp"
 import EmailSent from "./components/EmailSent"
-import EmailModal from "./components/EmailModal"
-import PasswordModal from "./components/PasswordModal"
+import EmailModal from "./modal/EmailModal"
+
+import Welcom from "./components/Welcom"
 
 
 
@@ -22,10 +23,11 @@ function App() {
         <Route path="/" element={<RootLayout/>}>
 
           <Route path="/" element={<Login/>}/>
-          <Route path="/welcom" element={<WelcomeBack/>}/>
+          <Route path="/welcomback" element={<WelcomeBack/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/email" element={<EmailSent/>}/>
           <Route path="/modal" element={<EmailModal/>}/>
+          <Route path="/welcom" element={<Welcom/>}/>
 
 
         </Route>
