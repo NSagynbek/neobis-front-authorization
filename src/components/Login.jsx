@@ -1,6 +1,7 @@
 import illustration from '../assets/images/illustration.png';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { IconButton, InputAdornment } from '@mui/material';
+import TextError from "./TextError"
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -59,7 +60,7 @@ export default function Login (){
             placeholder="Введи логин"
             />
 
-          <ErrorMessage name="login" />
+          <ErrorMessage name="login" component={TextError} />
 
            
 
@@ -80,7 +81,7 @@ export default function Login (){
 
          </div>
 
-            <ErrorMessage name="password" />
+            <ErrorMessage name="password" component={TextError}/>
 
             <button type='submit' className='form-control__Btn'>Войти</button>
 
