@@ -15,8 +15,12 @@ export const signup = async (data)=>{
     return res.data
 }
 
-export const ensureRegistration = async (data)=>{
-    const res = await instance.post("ensure-registration",data)
+export const ensureRegistration = async (token)=>{
+    const res = await instance.put("ensure-registration",null,{
+        params:{
+            token:token
+        }
+    })
     return res.data
 }
 
