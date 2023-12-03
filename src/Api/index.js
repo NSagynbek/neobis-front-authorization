@@ -21,6 +21,12 @@ export const ensureRegistration = async (data)=>{
 }
 
 export const sendMessage = async (data)=>{
-    const res = await instance.post("send-message",data)
+    const urlParam = 'https://example.com/your-url';
+
+    const res = await instance.put("send-message",data,{
+        params:{
+            link:urlParam
+        }
+    })
     return res.data
 }

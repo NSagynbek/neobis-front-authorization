@@ -62,6 +62,7 @@ export default function SignUp(){
     }
 
     const onSubmit = async (values, { setSubmitting }) => {
+      try{
       const formData = {
           email: values.email,
           password: values.password,
@@ -70,8 +71,15 @@ export default function SignUp(){
   
       const response = await signup(formData);
       console.log(response);
+
+      const res = await sendMessage(formData)
+      console.log(res)
   
       setSubmitting(false);
+    } catch(error){
+      console.log("Error",error)
+      setSubmitting(false);
+    }
   };
 
 
