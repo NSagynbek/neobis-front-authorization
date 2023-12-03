@@ -12,7 +12,8 @@ import * as yup from "yup";
 
 import { useState} from 'react';
 
-import { signup } from '../Api';
+import { signup,sendMessage } from '../Api';
+
 
 const initialValues = {
     email:"",
