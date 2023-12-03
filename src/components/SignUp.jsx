@@ -56,12 +56,19 @@ export default function SignUp(){
         setSecondRepead(!showSecondRepead);
     }
 
-    const onSubmit = async (values,{setSubmitting}) =>{
-    const response = await signup(values);
-    console.log(response)
+    const onSubmit = async (values, { setSubmitting }) => {
+      const formData = {
+          email: values.email,
+          password: values.password,
+          username: values.username,         
+      };
   
-        setSubmitting(false);
-    }
+    console.log(formData)
+      const response = await signup(formData);
+      console.log(response);
+  
+      setSubmitting(false);
+  };
 
 
   
