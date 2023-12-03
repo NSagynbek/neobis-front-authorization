@@ -1,5 +1,6 @@
 import illustration from '../assets/images/illustration.png';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { IconButton, InputAdornment } from '@mui/material';
 import PasswordRequirements from './PasswordRequirements';
@@ -26,6 +27,8 @@ const initialValues = {
 
 
 export default function SignUp(){
+    const [iconToggle, setIcon] = useState(false);
+    const [iconToggleRep, setIconRep] = useState(false);
     const [showSecond, setSecond] =useState(false);
     const [showSecondRepead, setSecondRepead] =useState(false);
 
@@ -50,10 +53,12 @@ export default function SignUp(){
 
     function handlePasswordVisibility(){
         setSecond(!showSecond);
+        setIcon(!iconToggle);
     }
 
     function handleRepeadVisibility(){
         setSecondRepead(!showSecondRepead);
+        setIconRep(!iconToggleRep)
     }
 
     const onSubmit = async (values, { setSubmitting }) => {
@@ -63,7 +68,6 @@ export default function SignUp(){
           username: values.username,         
       };
   
-    console.log(formData)
       const response = await signup(formData);
       console.log(response);
   
@@ -146,7 +150,7 @@ export default function SignUp(){
 
             <InputAdornment position="end" className='MUicon' >
                 <IconButton onClick={handlePasswordVisibility} edge="end">
-                  <VisibilityOutlinedIcon />
+                  {iconToggle?<VisibilityOutlinedIcon/>:<VisibilityOffOutlinedIcon/>}                 
                 </IconButton>
             </InputAdornment>
 
@@ -171,7 +175,7 @@ export default function SignUp(){
 
             <InputAdornment position="end" className='MUicon' >
                 <IconButton onClick={handleRepeadVisibility} edge="end">
-                  <VisibilityOutlinedIcon />
+                {iconToggleRep?<VisibilityOutlinedIcon/>:<VisibilityOffOutlinedIcon/>}
                 </IconButton>
             </InputAdornment>
 

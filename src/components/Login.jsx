@@ -1,5 +1,6 @@
 import illustration from '../assets/images/illustration.png';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import { IconButton, InputAdornment } from '@mui/material';
 import TextError from "./TextError"
 import { useState } from 'react';
@@ -24,9 +25,11 @@ const validationSchema = Yup.object({
 export default function Login (){
 
     const [showPassword, setShowPassword] =useState(false);
+    const [iconToggle, setIcon] = useState(false);
 
     function handlePasswordVisibility(){
         setShowPassword(!showPassword);
+        setIcon(!iconToggle)
     }
 
     const onSubmit = (values) =>{
@@ -75,7 +78,7 @@ export default function Login (){
 
             <InputAdornment position="end" className='MUicon' >
                 <IconButton onClick={handlePasswordVisibility} edge="end">
-                  <VisibilityOutlinedIcon />
+                {iconToggle?<VisibilityOutlinedIcon/>:<VisibilityOffOutlinedIcon/>} 
                 </IconButton>
             </InputAdornment>
 

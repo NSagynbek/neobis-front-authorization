@@ -3,7 +3,7 @@ import axios from "axios"
 const instance = axios.create({
     baseURL: "https://auth-neobis.up.railway.app/api/auth/",
  
-});
+}); 
 
 export const login = async (data)=>{
     const res = await instance.post("sign-in",data)
