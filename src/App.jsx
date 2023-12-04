@@ -27,6 +27,8 @@ function App() {
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/email" element={<EmailSent/>}/>
           <Route path="/welcom" element={<Welcom/>}/>
+          <Route path="/:token" element={<Login />} />
+
 
 
         </Route>

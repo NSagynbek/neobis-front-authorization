@@ -32,6 +32,7 @@ export default function Login (){
     const [iconToggle, setIcon] = useState(false);
 
     const {token} = useParams();
+    console.log(token)
 
     useEffect(()=>{
 
