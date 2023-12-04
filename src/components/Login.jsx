@@ -21,7 +21,7 @@ const initialValues = {
 }
 
 const validationSchema = Yup.object({
-    login:Yup.string().required("Required"),
+    username:Yup.string().required("Required"),
     password:Yup.string().required("Required"),
 })
 
@@ -73,11 +73,11 @@ export default function Login (){
 
             <Field type="text" 
             id="login" 
-            name="login" 
+            name="username" 
             placeholder="Введи логин"
             />
 
-          <ErrorMessage name="login" component={TextError} />
+          <ErrorMessage name="username" component={TextError} />
 
            
 
