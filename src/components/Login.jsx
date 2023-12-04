@@ -16,7 +16,7 @@ import { login } from '../Api';
 
 
 const initialValues = {
-  login:"",
+  username:"",
   password:"",
 }
 

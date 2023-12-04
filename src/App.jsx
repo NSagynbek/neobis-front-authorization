@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
+
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Authentication from './components/Authentication';
 import WelcomeBack from "./components/WelcomBack"
 import EmailSent from "./components/EmailSent"
 import Welcom from "./components/Welcom"
+import RootLayout from "./layouts/RootLayout"
 
 
 
