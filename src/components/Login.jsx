@@ -38,10 +38,17 @@ export default function Login (){
         setIcon(!iconToggle)
     }
 
-    const onSubmit = async (values) =>{
-        const response = await login(values)
-        console.log(response)
-    }
+    const onSubmit = async (values) => {
+        console.log(values);
+        try {
+            const response = await login(values); 
+            console.log(response);
+            
+        } catch (error) {
+            console.error('Error during login:', error);
+          
+        }
+    };
 
     return(
         <div className="login">
