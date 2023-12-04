@@ -43,18 +43,18 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
-            setValidPass(false);
+            
             console.log(response);
             
         } catch (error) {
             console.error('Error during login:', error);
-          
+            setValidPass(false);
         }
     };
 
     return(
         <div className="login">
-            {validPass?null:<PasswordModal/>}           
+            {validPass?<PasswordModal/>:null}           
             <div className='login__container'>
                 <img src={illustration} alt={illustration} className='login__container-image'  />
                 <p className='login__container-heading'>Lorby</p>
