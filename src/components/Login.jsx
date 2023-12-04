@@ -3,15 +3,16 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import { IconButton, InputAdornment } from '@mui/material';
 import TextError from "./TextError"
-import { useState,useEffect } from 'react';
+import { useState} from 'react';
 import { NavLink } from 'react-router-dom';
 
 
 import {Formik,Form,Field,ErrorMessage} from "formik"
 import * as Yup from "yup"
 import PasswordModal from "../modal/PasswordModal"
+import { login } from '../Api';
 
-import { ensureRegistration, sendMessage } from '../Api';
+
 
 
 const initialValues = {
@@ -37,8 +38,9 @@ export default function Login (){
         setIcon(!iconToggle)
     }
 
-    const onSubmit = (values) =>{
-        console.log("form data", values.password)
+    const onSubmit = async (values) =>{
+        const response = await login(values)
+        console.log(response)
     }
 
     return(
