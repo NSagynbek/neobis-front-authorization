@@ -9,6 +9,7 @@ import EmailSent from "./components/EmailSent"
 
 
 import Welcom from "./components/Welcom"
+import Authentication from "./components/Authentication"
 
 
 
@@ -23,11 +24,13 @@ function App() {
         <Route path="/" element={<RootLayout/>}>
 
           <Route path="/" element={<Login/>}/>
-          <Route path="/welcomback" element={<WelcomeBack/>}/>
           <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/auth" element={<Authentication/>}/>
+
+          <Route path="/welcomback" element={<WelcomeBack/>}/>      
           <Route path="/email" element={<EmailSent/>}/>
           <Route path="/welcom" element={<Welcom/>}/>
-          <Route path="/:token" element={<Login />} />
+
 
 
 

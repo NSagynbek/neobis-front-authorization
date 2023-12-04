@@ -5,7 +5,7 @@ import { IconButton, InputAdornment } from '@mui/material';
 import TextError from "./TextError"
 import { useState,useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+
 
 import {Formik,Form,Field,ErrorMessage} from "formik"
 import * as Yup from "yup"
@@ -31,33 +31,7 @@ export default function Login (){
     const [showPassword, setShowPassword] =useState(false);
     const [iconToggle, setIcon] = useState(false);
 
-    const {token} = useParams();
-    console.log(token)
-
-    useEffect(()=>{
-
-    const  getAuthorized = async ()=>{
-        try{
-            if(token){
-                const res = await ensureRegistration(token)
-                console.log(res)
-
-            } else{
-                console.log('Token not found');
-            }
-            
-
-        } catch(error){
-            console.error('Error:', error);
-        }
-        
-
-    }
-
-    getAuthorized();
-
-    },[token])
-
+   
     function handlePasswordVisibility(){
         setShowPassword(!showPassword);
         setIcon(!iconToggle)
