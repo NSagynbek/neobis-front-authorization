@@ -31,6 +31,7 @@ export default function Login (){
 
     const [showPassword, setShowPassword] =useState(false);
     const [iconToggle, setIcon] = useState(false);
+    const [validPass, setValidPass] = useState(true);
 
    
     function handlePasswordVisibility(){
@@ -42,6 +43,7 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
+            setValidPass(false);
             console.log(response);
             
         } catch (error) {
@@ -52,7 +54,7 @@ export default function Login (){
 
     return(
         <div className="login">
-            <PasswordModal/>
+            {validPass?null:<PasswordModal/>}           
             <div className='login__container'>
                 <img src={illustration} alt={illustration} className='login__container-image'  />
                 <p className='login__container-heading'>Lorby</p>
