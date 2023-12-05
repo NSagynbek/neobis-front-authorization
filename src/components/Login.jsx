@@ -31,6 +31,7 @@ export default function Login (){
 
     const [showPassword, setShowPassword] =useState(false);
     const [iconToggle, setIcon] = useState(false);
+
     const [pass, setPass] = useState(false);
 
    
@@ -43,12 +44,8 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
-            console.log(response)
-            if(response.status === 200){
-                setPass(false);
-            } else if(response.status === 400 || response.status === 406){
-                setPass(true)
-            }
+            console.log(response.status)
+         
          
             
         } catch (error) {
@@ -59,7 +56,7 @@ export default function Login (){
 
     return(
         <div className="login">
-            {pass?<PasswordModal/>:null}           
+                    
             <div className='login__container'>
                 <img src={illustration} alt={illustration} className='login__container-image'  />
                 <p className='login__container-heading'>Lorby</p>
