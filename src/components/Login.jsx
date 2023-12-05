@@ -44,11 +44,8 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
-            console.log(response.data)
-            console.log(response.data.httpStatus)
-         
-         
-            
+            console.log(response)
+                   
         } catch (error) {
             console.error('Error during login:', error.response);
             
