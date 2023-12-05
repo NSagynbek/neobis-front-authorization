@@ -58,7 +58,7 @@ export default function Login (){
 
     return(
         <div className="login">
-            {validPass?<PasswordModal/>:null}           
+            {pass?<PasswordModal/>:null}           
             <div className='login__container'>
                 <img src={illustration} alt={illustration} className='login__container-image'  />
                 <p className='login__container-heading'>Lorby</p>
