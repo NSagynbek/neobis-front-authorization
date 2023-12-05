@@ -44,12 +44,12 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
-            console.log(response.status)
+            console.log(response.httpStatus)
          
          
             
         } catch (error) {
-            console.error('Error during login:', error);
+            console.error('Error during login:', error.response);
             
         }
     };
