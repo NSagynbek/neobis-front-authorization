@@ -43,9 +43,9 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
-            if(response.status ===200){
-                setPass(false)
-            } else if(response.status===400 || 406){
+            if(response.status === 200){
+                setPass(false);
+            } else if(response.status === 400 || response.status === 406){
                 setPass(true)
             }
          
