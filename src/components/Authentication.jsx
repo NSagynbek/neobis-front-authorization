@@ -16,7 +16,8 @@ export default function Authentication() {
     const getAuthorized = async () => {
       try {
         if (tokenFromParams) {
-          await ensureRegistration(tokenFromParams);
+       const response =   await ensureRegistration(tokenFromParams);
+       console.log(response)
          
         } else {
           console.log('Token not found');
@@ -27,7 +28,7 @@ export default function Authentication() {
     };
 
     getAuthorized();
-  }, [token]); 
+  }, []); 
 
  
 
