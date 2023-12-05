@@ -3,24 +3,32 @@ import { IconButton, InputAdornment } from '@mui/material';
 import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
 import { NavLink } from 'react-router-dom';
 
-import { useState} from 'react';
+import { useState } from 'react';
 
 import EmailModal from "../modal/EmailModal"
-
+import { sendMessage } from '../Api';
 
 
 
 
 export default function EmailSent(){
- 
 
- 
+    const [modal,setModal]=useState(false)
+
+const handleRequest = async ()=>{ 
+    try{
+        const res = await sendMessage(formData)
+        setModal(true)     
+      } catch(error){
+        console.log(error)
+      
+      }
+}
 
 
-  
     return(
        <div className='emailSent'>
-          <EmailModal/> 
+          {modal? <EmailModal/> :null}
          <label htmlFor="backBtn" className='backBtn-label'>
               <NavLink id='backBtn-label__link' to="/signup">
               Назад
@@ -31,7 +39,7 @@ export default function EmailSent(){
                    <ChevronLeftOutlinedIcon />
                </IconButton>
             </NavLink>
-         </label> 
+         </label>
         <div className='email-container'>
 
             <div className='login__container'>
@@ -44,11 +52,11 @@ export default function EmailSent(){
             <div className='email'>
                 <p className='email__Heading'><span>Выслали письмо со ссылкой для</span> <span>завершения регистрации на</span> <span> example@gmail.com</span> </p>
                 <p className='email__Text'>
-                Если вы не нашли его во входящих, проверьте папку «Спам».  Иногда электронные письма могут оказаться там по ошибке. 
+                Если вы не нашли его во входящих, проверьте папку «Спам».  Иногда электронные письма могут оказаться там по ошибке.
                (´｡• ω •｡`)
                 </p>
 
-                <button className='email__Btn'>Письмо не пришло</button>
+                <button onClick={handleRequest} className='email__Btn'>Письмо не пришло</button>
             </div>
 
 

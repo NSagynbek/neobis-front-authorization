@@ -8,7 +8,7 @@ import TextError from './TextError';
 import { NavLink } from 'react-router-dom';
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import * as yup from "yup";
-
+import { useNavigate } from 'react-router-dom';
 
 import { useState} from 'react';
 
@@ -28,6 +28,9 @@ const initialValues = {
 
 
 export default function SignUp(){
+
+  const navigate = useNavigate()
+  
     const [iconToggle, setIcon] = useState(false);
     const [iconToggleRep, setIconRep] = useState(false);
     const [showSecond, setSecond] =useState(false);
@@ -72,8 +75,16 @@ export default function SignUp(){
   
       const response = await signup(formData);
       console.log(response);
+try{
+  const res = await sendMessage(formData)
+  navigate("/email")
 
-      const res = await sendMessage(formData)
+} catch(error){
+  console.log(error)
+
+}
+     
+
       console.log(res)
   
       setSubmitting(false);

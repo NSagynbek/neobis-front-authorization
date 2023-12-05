@@ -9,9 +9,11 @@
     
     }); 
 
+    
+
     export const login = async (data)=>{
         const res = await instance.post("sign-in",data)
-        return res.data
+        return res
     }
 
     export const signup = async (data)=>{

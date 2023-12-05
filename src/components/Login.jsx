@@ -5,6 +5,7 @@ import { IconButton, InputAdornment } from '@mui/material';
 import TextError from "./TextError"
 import { useState} from 'react';
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 import {Formik,Form,Field,ErrorMessage} from "formik"
@@ -31,6 +32,9 @@ export default function Login (){
 
     const [showPassword, setShowPassword] =useState(false);
     const [iconToggle, setIcon] = useState(false);
+    const [pass, setPass] = useState(false);
+
+    const navigate = useNavigate();
 
   
 
@@ -44,17 +48,24 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
-            console.log(response)
+            console.log(response.data)
+            setPass(false)
+
+            if(!pass){
+                navigate('/welcomback');
+            }
+                 
                    
         } catch (error) {
-            console.error('Error during login:', error.response);
-            
+           
+            console.error('Error during login:', error);
+            setPass(true)
         }
     };
 
     return(
         <div className="login">
-                    
+                    {pass?<PasswordModal/>:null}
             <div className='login__container'>
                 <img src={illustration} alt={illustration} className='login__container-image'  />
                 <p className='login__container-heading'>Lorby</p>
