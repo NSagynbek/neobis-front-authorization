@@ -44,7 +44,8 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
-            console.log(response.status)
+            console.log(response.data)
+            console.log(response.data.httpStatus)
          
          
             
