@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react';
 import { ensureRegistration } from '../Api';
 import CircularProgress from '@mui/material/CircularProgress';
-import { useNavigate } from 'react-router-dom';
+
 
 export default function Authentication() {
-  const navigate = useNavigate();
-  const [redirect, setRedirect] = useState(false);
-  const [token, setToken] = useState(null); // Declare 'token' using useState
+  
+  const [token, setToken] = useState(null); 
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const tokenFromParams = urlParams.get('token');
 
-    setToken(tokenFromParams); // Set the 'token' state with the received value
+    setToken(tokenFromParams); 
 
     const getAuthorized = async () => {
       try {
         if (tokenFromParams) {
           await ensureRegistration(tokenFromParams);
-          setRedirect(true);
+         
         } else {
           console.log('Token not found');
         }
@@ -28,24 +27,14 @@ export default function Authentication() {
     };
 
     getAuthorized();
-  }, [token]); // Add 'token' as a dependency here
+  }, [token]); 
 
-  useEffect(() => {
-    if (redirect) {
-      navigate('/');
-    }
-  }, [redirect, navigate]);
+ 
 
   return (
-    <div className='authentication'>
-      {redirect ? (
-        <p>аутентификация прошла успешно</p>
-      ) : (
-        <div>
+    <div className='authentication'> 
           <p>Аутентификация</p>
-          <CircularProgress />
-        </div>
-      )}
+          <CircularProgress />   
     </div>
   );
 }
