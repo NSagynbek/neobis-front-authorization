@@ -31,7 +31,7 @@ export default function Login (){
 
     const [showPassword, setShowPassword] =useState(false);
     const [iconToggle, setIcon] = useState(false);
-    const [validPass, setValidPass] = useState(false);
+    const [pass, setPass] = useState(false);
 
    
     function handlePasswordVisibility(){
@@ -43,12 +43,16 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
-            
-            console.log(response);
+            if(response.status ===200){
+                setPass(false)
+            } else if(response.status===400 || 406){
+                setPass(true)
+            }
+         
             
         } catch (error) {
             console.error('Error during login:', error);
-            setValidPass(true);
+            
         }
     };
 
