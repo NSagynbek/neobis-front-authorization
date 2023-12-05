@@ -32,7 +32,7 @@ export default function Login (){
     const [showPassword, setShowPassword] =useState(false);
     const [iconToggle, setIcon] = useState(false);
 
-    const [pass, setPass] = useState(false);
+  
 
    
     function handlePasswordVisibility(){
@@ -44,11 +44,7 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
-            if(response.ok){
-                console.log("ok")
-            } else{
-                console.log("not ok")
-            }
+            console.log(response)
          
          
             
