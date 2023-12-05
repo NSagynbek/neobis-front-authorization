@@ -44,7 +44,11 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
-            console.log(response.httpStatus)
+            if(response.ok){
+                console.log("ok")
+            } else{
+                console.log("not ok")
+            }
          
          
             
