@@ -3,6 +3,8 @@ Overview
 This application facilitates user authentication, allowing individuals to sign up and login securely using the Lorby server.   
 The system conducts validation checks for proper email formats, password strength, and username existence. It provides feedback on registration status,   
 handles incorrect login credentials, and offers guidance through modal windows.  
+
+
 ![login](https://github.com/NSagynbek/neobis-front-authorization/assets/130668892/e1713aa3-6787-4c41-b9c7-e248cef81574)
 
 ![sign-up](https://github.com/NSagynbek/neobis-front-authorization/assets/130668892/31032c1f-0f3f-4310-927a-f1c583ebd421)
