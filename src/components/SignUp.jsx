@@ -90,7 +90,7 @@ try{
   const res = await sendMessage(formData)
   dispatch(signupSuccess(formData));
   console.log(res)
-  navigate("/")
+  navigate("/email")
 
 } catch(error){
   console.log(error)
