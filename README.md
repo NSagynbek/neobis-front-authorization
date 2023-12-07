@@ -1,8 +1,8 @@
-Login and Sign-Up Authorization Application
-Overview
-This application facilitates user authentication, allowing individuals to sign up and login securely using the Lorby server. 
-The system conducts validation checks for proper email formats, password strength, and username existence. It provides feedback on registration status, 
-handles incorrect login credentials, and offers guidance through modal windows.
+Login and Sign-Up Authorization Application  
+Overview  
+This application facilitates user authentication, allowing individuals to sign up and login securely using the Lorby server.   
+The system conducts validation checks for proper email formats, password strength, and username existence. It provides feedback on registration status,   
+handles incorrect login credentials, and offers guidance through modal windows.  
 
 Features
 User Registration
