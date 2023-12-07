@@ -17,7 +17,7 @@
     }
 
     export const signup = async (data)=>{
-        const res = await instance.post("sign-up",data)
+        const res = await instance.post("sign-up",data,)
         return res.data
     }
 
@@ -31,7 +31,7 @@
     }
 
     export const sendMessage = async (data)=>{
-        const urlParam = 'https://example.com/your-url';
+        const urlParam = 'https://neobis-front-authorization.vercel.app/auth';
 
         const res = await instance.put("send-message",data,{
             params:{

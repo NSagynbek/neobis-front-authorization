@@ -27,7 +27,6 @@ const initialValues = {
     password:"",
     secondPassword:"",
     username:"",
-    link:"https://neobis-front-authorization.vercel.app/auth",
   }
 
 
