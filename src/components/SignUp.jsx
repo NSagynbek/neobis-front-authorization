@@ -215,7 +215,15 @@ try{
         
             <ErrorMessage name="secondPassword" component={TextError} />
 
-            <button type='submit' className='form-control__Btn-sign-in'>Далее</button>
+            <button
+            type='submit'
+            className={`form-control__Btn-sign-in ${
+            formikProps.dirty && formikProps.isValid ? 'form-control__Btn-sign-in-valid' : ''}`}
+            disabled={!formikProps.dirty || !formikProps.isValid}
+             >
+            Далее
+           </button>
+
 
 
             </div>
