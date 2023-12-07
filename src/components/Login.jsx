@@ -1,3 +1,6 @@
+import { useSelector,useDispatch } from "react-redux"
+import { loginSuccess } from "../redux/index"
+
 import illustration from '../assets/images/illustration.png';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
@@ -30,6 +33,9 @@ const validationSchema = Yup.object({
 
 export default function Login (){
 
+    const isAuthenticated = useSelector(state => state.isAuthenticated)
+    const dispatch = useDispatch()
+
     const [showPassword, setShowPassword] =useState(false);
     const [iconToggle, setIcon] = useState(false);
     const [pass, setPass] = useState(false);
@@ -48,6 +54,7 @@ export default function Login (){
         console.log(values);
         try {
             const response = await login(values); 
+            dispatch(loginSuccess(response.data));
             console.log(response.data)
             setPass(false)
 

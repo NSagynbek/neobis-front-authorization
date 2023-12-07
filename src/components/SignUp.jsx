@@ -1,3 +1,6 @@
+import { useSelector,useDispatch } from "react-redux"
+import {signupSuccess} from "../redux/index"
+
 import illustration from '../assets/images/illustration.png';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
@@ -8,11 +11,15 @@ import TextError from './TextError';
 import { NavLink } from 'react-router-dom';
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import * as yup from "yup";
-import { useNavigate } from 'react-router-dom';
 
+import { useNavigate } from 'react-router-dom';
 import { useState} from 'react';
 
 import { signup,sendMessage } from '../Api';
+import EmailSent from "./EmailSent";
+
+
+
 
 
 const initialValues = {
@@ -28,6 +35,8 @@ const initialValues = {
 
 
 export default function SignUp(){
+  const formData = useSelector(state => state.formData)
+  const dispatch = useDispatch()
 
   const navigate = useNavigate()
   
@@ -74,9 +83,12 @@ export default function SignUp(){
       };
   
       const response = await signup(formData);
+     
       console.log(response);
 try{
   const res = await sendMessage(formData)
+  dispatch(signupSuccess(formData));
+  console.log(res)
   navigate("/email")
 
 } catch(error){

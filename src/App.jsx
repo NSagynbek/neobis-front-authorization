@@ -1,3 +1,6 @@
+import { Provider } from "react-redux";
+import store from '/src/redux/store.js';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -18,6 +21,7 @@ const App = () => {
   }, []);
 
   return (
+    <Provider store={store}>
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
@@ -28,6 +32,7 @@ const App = () => {
         <Route path="/welcom" element={<Welcom />} />
       </Routes>
     </Router>
+    </Provider>
   );
 };
 

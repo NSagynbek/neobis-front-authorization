@@ -1,3 +1,6 @@
+import { useSelector,useDispatch } from "react-redux"
+import {urlSend} from "../redux/index"
+
 import illustration from '../assets/images/illustration.png';
 import { IconButton, InputAdornment } from '@mui/material';
 import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
@@ -12,23 +15,27 @@ import { sendMessage } from '../Api';
 
 
 export default function EmailSent(){
+    
+    const dispatch = useDispatch()
 
-    const [modal,setModal]=useState(false)
+    const formData = useSelector(state => state.formData)
+    const sentStatus = useSelector(state => state.sentStatus)
 
-const handleRequest = async ()=>{ 
+ async function handleClick (){
+    console.log(formData)
     try{
-        const res = await sendMessage(formData)
-        setModal(true)     
-      } catch(error){
+    const res = await sendMessage(formData)
+    dispatch(urlSend());
+    console.log("token--",res)
+    } catch(error){
         console.log(error)
-      
-      }
-}
+    }
 
+}
 
     return(
        <div className='emailSent'>
-          {modal? <EmailModal/> :null}
+          {sentStatus?<EmailModal/>:null }
          <label htmlFor="backBtn" className='backBtn-label'>
               <NavLink id='backBtn-label__link' to="/signup">
               Назад
@@ -45,6 +52,7 @@ const handleRequest = async ()=>{
             <div className='login__container'>
                 <img src={illustration} alt={illustration} className='login__container-image'  />
                 <p className='login__container-heading'>Lorby</p>
+             
                 <p className='login__container-text'>Твой личный репетитор</p>
             </div>
 
@@ -56,7 +64,7 @@ const handleRequest = async ()=>{
                (´｡• ω •｡`)
                 </p>
 
-                <button onClick={handleRequest} className='email__Btn'>Письмо не пришло</button>
+                <button onClick={handleClick}  className='email__Btn'>Письмо не пришло</button>
             </div>
 
 
