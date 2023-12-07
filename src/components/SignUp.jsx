@@ -27,7 +27,7 @@ const initialValues = {
     password:"",
     secondPassword:"",
     username:"",
-    link:"",
+    link:"https://neobis-front-authorization.vercel.app/auth",
   }
 
 
@@ -79,7 +79,8 @@ export default function SignUp(){
       const formData = {
           email: values.email,
           password: values.password,
-          username: values.username,         
+          username: values.username,
+          link:values.link         
       };
   
       const response = await signup(formData);
@@ -89,7 +90,7 @@ try{
   const res = await sendMessage(formData)
   dispatch(signupSuccess(formData));
   console.log(res)
-  navigate("/email")
+  navigate("/")
 
 } catch(error){
   console.log(error)
