@@ -67,6 +67,10 @@ export default function Login (){
            
             console.error('Error during login:', error);
             setPass(true)
+            setTimeout(()=>{
+                setPass(false)
+
+            },2500)
         }
     };
 
