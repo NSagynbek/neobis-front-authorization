@@ -58,7 +58,7 @@ export default function EmailSent(){
 
 
             <div className='email'>
-                <p className='email__Heading'><span>Выслали письмо со ссылкой для</span> <span>завершения регистрации на</span> <span> example@gmail.com</span> </p>
+                <p className='email__Heading'><span>Выслали письмо со ссылкой для</span> <span>завершения регистрации на</span> <span> {formData.email}</span> </p>
                 <p className='email__Text'>
                 Если вы не нашли его во входящих, проверьте папку «Спам».  Иногда электронные письма могут оказаться там по ошибке.
                (´｡• ω •｡`)

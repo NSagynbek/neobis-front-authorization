@@ -11,14 +11,12 @@
   width: 100%;
 }
 
-/* .root-layout-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+.root-layout-container{
+
   border: 1px solid black;
+  background-color: green;
  
-} */
+} 
 
 .login{
   display: flex;
@@ -92,7 +90,7 @@
 .MUicon{
   position: absolute;
   right: 20px;
-  top: 30px;
+  top: 35px;
 }
 
 .form-control__Btn{

@@ -20,7 +20,7 @@ export default function Authentication() {
       try {
         if (tokenFromParams) {
        const response =   await ensureRegistration(tokenFromParams);
-       navigate("/welcom")
+       navigate("/")
        console.log(response)
 
          

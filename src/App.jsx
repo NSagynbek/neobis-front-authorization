@@ -11,6 +11,7 @@ import WelcomeBack from "./components/WelcomBack"
 import EmailSent from "./components/EmailSent"
 import Welcom from "./components/Welcom"
 import RootLayout from "./layouts/RootLayout"
+import {PrivateRoutes} from "./components/utils/PrivateRoutes";
 
 
 
@@ -23,14 +24,23 @@ const App = () => {
   return (
     <Provider store={store}>
     <Router>
+
       <Routes>
+        <Route path="/" element={<RootLayout/>}>
+          
+        <Route element={<PrivateRoutes/>}>       
+        <Route path="/welcomback" element={<WelcomeBack />} />      
+        <Route path="/welcom" element={<Welcom />} />
+      </Route>
+       <Route path="/email" element={<EmailSent />} />
+        <Route path="/auth" element={<Authentication />} />
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/auth" element={<Authentication />} />
-        <Route path="/welcomback" element={<WelcomeBack />} />
-        <Route path="/email" element={<EmailSent />} />
-        <Route path="/welcom" element={<Welcom />} />
+
+        </Route>
+
       </Routes>
+
     </Router>
     </Provider>
   );

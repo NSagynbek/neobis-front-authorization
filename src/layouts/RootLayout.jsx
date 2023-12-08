@@ -1,14 +1,13 @@
-import {NavLink, Outlet} from "react-router-dom"
+import {Outlet} from "react-router-dom"
 
 
 export default function RootLayout (){
     return(
-        <div className="root-layout-container">
-              <header>
-                <nav>
-                    {/* <NavLink to="/">The Meal</NavLink> */}
-                </nav>
-            </header>
+        <div className="rootLayout">
+           
+           <header>
+            <h1></h1>
+           </header>
 
             <main className="main">
                 <Outlet/>

@@ -4,5 +4,6 @@ export {urlSend} from "./auth/authActions"
 export {confirmation} from "./auth/authActions"
 export {authError} from "./auth/authActions"
 export {emailSentStatus} from "./auth/authActions"
+export {saveUser} from "./auth/authActions"
 
 

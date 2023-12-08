@@ -4,7 +4,7 @@ import { SEND_MESSAGE_SUCCESS}from "./authActionTypes"
 import { ENSURE_REGISTRATION_SUCCESS}from "./authActionTypes"
 import {AUTH_ERROR} from "./authActionTypes"
 import { SENT_STATUS} from "./authActionTypes"
-
+import {SAVE_USER} from "./authActionTypes"
 
 export const loginSuccess = (jwt) => {
     return{
@@ -44,6 +44,13 @@ export const loginSuccess = (jwt) => {
   export const emailSentStatus = ()=>{
     return {
       type:SENT_STATUS,
+    }
+  }
+
+  export const saveUser = (values)=>{
+    return {
+      type:SAVE_USER,
+      payload:values,
     }
   }
   

@@ -1,6 +1,7 @@
 import { useSelector,useDispatch } from "react-redux"
 import {signupSuccess} from "../redux/index"
 
+
 import illustration from '../assets/images/illustration.png';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
@@ -78,8 +79,7 @@ export default function SignUp(){
       const formData = {
           email: values.email,
           password: values.password,
-          username: values.username,
-          link:values.link         
+          username: values.username,        
       };
   
       const response = await signup(formData);

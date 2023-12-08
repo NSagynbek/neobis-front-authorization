@@ -1,13 +1,18 @@
+import {useSelector} from "react-redux"
 import illustration from "../assets/images/illustration.png"
 import ModalExitConfirm from "../modal/ModalExitConfirm"
+import {saveUser} from "./utils/PrivateRoutes"
 import { useState } from "react"
 
 export default function Welcom(){
+
+    const user = useSelector(state => state.user)
     const [exit,setExit] = useState(false)
 
 
     function handleExit(){
         setExit(!exit)
+        saveUser(user);
     }
 
     return(

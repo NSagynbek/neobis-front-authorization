@@ -5,7 +5,8 @@ import {
     ENSURE_REGISTRATION_SUCCESS,
     AUTH_ERROR,
     FETCHING_DATA,
-    SENT_STATUS
+    SENT_STATUS,
+    SAVE_USER
   } from "./authActionTypes";
   
   const initialState = {
@@ -20,6 +21,10 @@ import {
       username: "",
       link: "",
     },
+    user:{
+      username:"",
+      password:"",
+    },
   };
   
   const reducer = (state = initialState, action) => {
@@ -33,6 +38,7 @@ import {
         return {
           ...state, 
           isAuthenticated: true,
+          
         };
       case SIGNUP_SUCCESS:
         return {
@@ -68,7 +74,18 @@ import {
         return {
           ...state,
           sentStatus:false
-        }  
+        };
+
+        case SAVE_USER:
+          return {
+            ...state,
+            user: {
+              ...state.user,
+              ...action.payload,
+            },
+          }; 
+
+        
       default:
         return state;
     }
